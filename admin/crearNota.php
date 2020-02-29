@@ -17,20 +17,20 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="p-5">
-              <form class="user">
+              <form class="nuevaNota">
                 <div class="form-group row">
                   <div class="col-sm-12 mb-3">
                   <label for="titulo">Titulo:</label>
-                    <input type="text" class="form-control" id="titulo" placeholder="">
+                    <input type="text" class="form-control" id="titulo" placeholder="Titulo">
                   </div>
                   <div class="col-sm-12 mb-3">
                         <label>Imagen Portada:</label>
                         <div class="custom-file"> 
-                            <input type="file" class="custom-file-input" id="validatedCustomFile" required>
-                            <label class="custom-file-label" for="validatedCustomFile">Imagen Portada</label>
+                            <input type="file" class="custom-file-input" id="imagen" required>
+                            <label class="custom-file-label" for="imagen">Imagen Portada</label>
                         </div>
                     </div>
-                <div class="col-sm-12 mb-3">
+                <div class="col-sm-12">
                   <div class="form-group">
                         <label for="contenido">Contenido:</label>
                         <textarea class="form-control" id="contenido" cols="30" rows="25"></textarea>
@@ -39,8 +39,8 @@
                   </div>
                 </div>
                     <div class="form-group">
-                        <label for="exampleFormControlSelect1">Autor</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
+                        <label for="autor">Autor</label>
+                        <select class="form-control" id="autor">
                         <option>Seleccionar</option>
                         <option>Redaccion</option>
                         <option>Policiaco</option>
@@ -50,8 +50,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="exampleFormControlSelect1">Categoria</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
+                        <label for="categoria">Categoria</label>
+                        <select class="form-control" id="categoria">
                         <option>Seleccionar</option>
                         <option>Local</option>
                         <option>Estado</option>
@@ -65,7 +65,7 @@
                         </select>
                     </div>
                 
-                <a href="#" class="btn btn-success btn-icon-split">
+                  <a href="#" class="btn btn-success btn-icon-split" id="subirNota">
                     <span class="icon text-white-50">
                       <i class="fas fa-check"></i>
                     </span>

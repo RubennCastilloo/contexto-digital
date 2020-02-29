@@ -1,8 +1,9 @@
- <!-- Footer -->
- <footer class="sticky-footer bg-white">
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Contexto Digital 2020 | Powered By <a href="https://raivtech.com" target="_blank">RAIV Technologies</a> </span>
+            <span>Copyright &copy; Your Website 2019</span>
           </div>
         </div>
       </footer>
@@ -49,18 +50,11 @@
   <script src="js/sb-admin-2.min.js"></script>
 
   <!-- Page level plugins -->
-  <script src="vendor/chart.js/Chart.min.js"></script>
+  <script src="vendor/datatables/jquery.dataTables.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
   <!-- Page level custom scripts -->
-  <script src="js/demo/chart-area-demo.js"></script>
-  <script src="js/demo/chart-pie-demo.js"></script>
-
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-
-  <script src="js/scripts.js"></script>
-
-  
-
+  <script src="js/demo/datatables-demo.js"></script>
 
 </body>
 

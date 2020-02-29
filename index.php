@@ -1,80 +1,7 @@
-<!DOCTYPE HTML>
-<html lang="en">
-<head>
-	<title>Contexto Digital Chihuahua - La Noticia al momento</title>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta charset="UTF-8">
-	
-	<!-- Font -->
-	<link href="https://fonts.googleapis.com/css?family=Encode+Sans+Expanded:400,600,700" rel="stylesheet">
-	
-	<!-- Stylesheets -->
-	
-	<link href="plugin-frameworks/bootstrap.css" rel="stylesheet">
-	
-	<link href="fonts/ionicons.css" rel="stylesheet">
-	
-		
-	<link href="common/styles.css" rel="stylesheet">
-	
-	
-</head>
-<body>
-	
-	<header>
-		<div class="bg-191">
-			<div class="container">	
-				<div class="oflow-hidden color-ash font-9 text-sm-center ptb-sm-5">
-				
-					<ul class="float-left float-sm-none list-a-plr-10 list-a-plr-sm-5 list-a-ptb-15 list-a-ptb-sm-10">
-						<li><a class="pl-0 pl-sm-10" href="#">Nosotros</a></li>
-						<li><a href="#">Contacto</a></li>
-					</ul>
-					<ul class="float-right float-sm-none list-a-plr-10 list-a-plr-sm-5 list-a-ptb-15 list-a-ptb-sm-5">
-						<li><a class="pl-0 pl-sm-10" href="#"><i class="ion-social-facebook"></i></a></li>
-						<li><a href="#"><i class="ion-social-twitter"></i></a></li>
-						<li><a href="#"><i class="ion-social-instagram"></i></a></li>
-					</ul>
-					
-				</div><!-- top-menu -->
-			</div><!-- container -->
-		</div><!-- bg-191 -->
-		
-		<div class="container">
-			<a class="logo" href="../contexto-digital"><h3 class="text-uppercase">Contexto Digital</h3></a>
-			
-			<a class="right-area src-btn" href="#" >
-				<i class="active src-icn ion-search"></i>
-				<i class="close-icn ion-close"></i>
-			</a>
-			<div class="src-form">
-				<form>
-					<input type="text" placeholder="Buscar Notas">
-					<button type="submit"><i class="ion-search"></i></a></button>
-				</form>
-			</div><!-- src-form -->
-			
-			<a class="menu-nav-icon" data-menu="#main-menu" href="#"><i class="ion-navicon"></i></a>
-			
-			<ul class="main-menu" id="main-menu">
-				<li><a href="local/">LOCAL</a></li>
-				<li><a href="estado/">ESTADO</a></li>
-				<li><a href="nacional/">NACIONAL</a></li>
-				<li><a href="internacional/">INTERNACIONAL</a></li>
-				<li class="drop-down"><a href="03_single-post.html">EXTRAS<i class="ion-arrow-down-b"></i></a>
-					<ul class="drop-down-menu drop-down-inner">
-						<li><a href="#">Economía</a></li>
-						<li><a href="#">Deportes</a></li>
-						<li><a href="#">Cultura y Espectáculos</a></li>
-						<li><a href="#">Tecnología</a></li>
-						<li><a href="#">Curiosidades</a></li>
-					</ul>
-				</li>
-			</ul>
-			<div class="clearfix"></div>
-		</div><!-- container -->
-	</header>
+<?php 
+	include 'layout/header.php';
+	include 'admin/php/functions.php';
+?>
 	
 	
 	<div class="container">
@@ -82,110 +9,57 @@
 			<div class="h-2-3 h-sm-auto oflow-hidden">
 		
 				<div class="pb-5 pr-5 pr-sm-0 float-left float-sm-none w-2-3 w-sm-100 h-100 h-sm-300x">
-					<a class="pos-relative h-100 dplay-block" href="#">
-					
-						<div class="img-bg bg-1 bg-grad-layer-6"></div>
-						
+				<?php $publicidades = obtenerNotaNumero(1);
+                if ($publicidades->num_rows) {
+                     foreach($publicidades as $publicidad) { ?>
+					<a class="pos-relative h-100 dplay-block" href="./nota.php?id=<?php echo $publicidad['id']; ?>">
+						<div class="bg-1 bg-grad-layer-6">
+							<img src="admin/img/notas/<?php echo $publicidad['imagen']; ?>" alt="">
+						</div>
 						<div class="abs-blr color-white p-20 bg-sm-color-7">
-							<h3 class="mb-15 mb-sm-5 font-sm-13"><b>Peter Thiels VC Found Invests Million into Bitcoin, Market Reacts</b></h3>
+							<h3 class="mb-15 mb-sm-5 font-sm-13"><b><?php echo $publicidad['titulo']; ?></b></h3>
 							<ul class="list-li-mr-20">
-								<li>by <span class="color-primary"><b>Olivia Capzallo</b></span> Jan 25, 2018</li>
+								<li>by <span class="color-primary"><b><?php echo $publicidad['autor']; ?></b></span> <?php echo $publicidad['fecha']; ?></li>
 								<li><i class="color-primary mr-5 font-12 ion-ios-bolt"></i>30,190</li>
 								<li><i class="color-primary mr-5 font-12 ion-chatbubbles"></i>30</li>
 							</ul>
 						</div><!--abs-blr -->
 					</a><!-- pos-relative -->
+					<?php
+                  }
+                }
+              ?>
 				</div><!-- w-1-3 -->
 				
 				<div class="float-left float-sm-none w-1-3 w-sm-100 h-100 h-sm-600x">
+				<?php $notas = obtenerUltimasNotas(2);
+                if ($notas->num_rows) {
+                     foreach($notas as $nota) { ?>
 				
 					<div class="pl-5 pb-5 pl-sm-0 ptb-sm-5 pos-relative h-50">
-						<a class="pos-relative h-100 dplay-block" href="#">
+						<a class="pos-relative h-100 dplay-block" href="./nota.php?id=<?php echo $nota['id']; ?>">
 						
-							<div class="img-bg bg-2 bg-grad-layer-6"></div>
+							<div class="img-bg bg-2 bg-grad-layer-6">
+								<img src="admin/img/notas/<?php echo $nota['imagen']; ?>" alt="">
+							</div>
 							
 							<div class="abs-blr color-white p-20 bg-sm-color-7">
-								<h4 class="mb-10 mb-sm-5"><b>Russians Bisiops Condems Cryptocurrecy</b></h4>
+								<h4 class="mb-10 mb-sm-5"><b><?php echo $nota['titulo']; ?></b></h4>
 								<ul class="list-li-mr-20">
-									<li>Jan 25, 2018</li>
+									<li><?php echo $nota['fecha']; ?></li>
 									<li><i class="color-primary mr-5 font-12 ion-ios-bolt"></i>30,190</li>
 									<li><i class="color-primary mr-5 font-12 ion-chatbubbles"></i>30</li>
 								</ul>
 							</div><!--abs-blr -->
 						</a><!-- pos-relative -->
 					</div><!-- w-1-3 -->
+					<?php
+                  }
+                }
+              ?>
 					
-					<div class="pl-5 ptb-5 pl-sm-0 pos-relative h-50">
-						<a class="pos-relative h-100 dplay-block" href="#">
-						
-							<div class="img-bg bg-3 bg-grad-layer-6"></div>
-							
-							<div class="abs-blr color-white p-20 bg-sm-color-7">
-								<h4 class="mb-10 mb-sm-5"><b>Bitcoin Adoption by Business in 2017</b></h4>
-								<ul class="list-li-mr-20">
-									<li>Jan 25, 2018</li>
-									<li><i class="color-primary mr-5 font-12 ion-ios-bolt"></i>30,190</li>
-									<li><i class="color-primary mr-5 font-12 ion-chatbubbles"></i>30</li>
-								</ul>
-							</div><!--abs-blr -->
-						</a><!-- pos-relative -->
-					</div><!-- w-1-3 -->
 					
-				</div><!-- float-left -->
-
-			</div><!-- h-2-3 -->
-			
-			<div class="h-1-3 oflow-hidden">
-		
-				<div class="pr-5 pr-sm-0 pt-5 float-left float-sm-none pos-relative w-1-3 w-sm-100 h-100 h-sm-300x">
-					<a class="pos-relative h-100 dplay-block" href="#">
-					
-						<div class="img-bg bg-4 bg-grad-layer-6"></div>
-						
-						<div class="abs-blr color-white p-20 bg-sm-color-7">
-							<h4 class="mb-10 mb-sm-5"><b>2017 Market Performance: Crypto vs.Stock</b></h4>
-							<ul class="list-li-mr-20">
-								<li>Jan 25, 2018</li>
-								<li><i class="color-primary mr-5 font-12 ion-ios-bolt"></i>30,190</li>
-								<li><i class="color-primary mr-5 font-12 ion-chatbubbles"></i>30</li>
-							</ul>
-						</div><!--abs-blr -->
-					</a><!-- pos-relative -->
-				</div><!-- w-1-3 -->
 				
-				<div class="plr-5 plr-sm-0 pt-5 pt-sm-10 float-left float-sm-none pos-relative w-1-3 w-sm-100 h-100 h-sm-300x">
-					<a class="pos-relative h-100 dplay-block" href="#">
-					
-						<div class="img-bg bg-5 bg-grad-layer-6"></div>
-						
-						<div class="abs-blr color-white p-20 bg-sm-color-7">
-							<h4 class="mb-10 mb-sm-5"><b>Culture Stock: Bitcoin a Part of all Walks of life in 2017</b></h4>
-							<ul class="list-li-mr-20">
-								<li>Jan 25, 2018</li>
-								<li><i class="color-primary mr-5 font-12 ion-ios-bolt"></i>30,190</li>
-								<li><i class="color-primary mr-5 font-12 ion-chatbubbles"></i>30</li>
-							</ul>
-						</div><!--abs-blr -->
-					</a><!-- pos-relative -->
-				</div><!-- w-1-3 -->
-				
-				<div class="pl-5 pl-sm-0 pt-5 pt-sm-10 float-left float-sm-none pos-relative w-1-3 w-sm-100 h-100 h-sm-300x">
-					<a class="pos-relative h-100 dplay-block" href="#">
-					
-						<div class="img-bg bg-6 bg-grad-layer-6"></div>
-						
-						<div class="abs-blr color-white p-20 bg-sm-color-7">
-							<h4 class="mb-10 mb-sm-5"><b>Bitcoin Billionares Hidding in Plain Sight</b></h4>
-							<ul class="list-li-mr-20">
-								<li>Jan 25, 2018</li>
-								<li><i class="color-primary mr-5 font-12 ion-ios-bolt"></i>30,190</li>
-								<li><i class="color-primary mr-5 font-12 ion-chatbubbles"></i>30</li>
-							</ul>
-						</div><!--abs-blr -->
-					</a><!-- pos-relative -->
-				</div><!-- w-1-3 -->
-				
-			</div><!-- h-2-3 -->
 		</div><!-- h-100vh -->
 	</div><!-- container -->
 	
@@ -353,79 +227,6 @@
 	</section>
 	
 	
-	<footer class="bg-191 color-ccc">
-		
-		<div class="container">
-			<div class="pt-50 pb-20 pos-relative">
-				<div class="abs-tblr pt-50 z--1 text-center">
-					<div class="h-80 pos-relative"><img class="opacty-1 h-100 w-auto" src="images/map.png" alt=""></div>
-				</div>
-				<div class="row">
-				
-					<div class="col-sm-4">
-						<div class="mb-30">
-							<a href="#"><h3>Contexto Digital</h3></a>
-							<p class="mtb-20 color-ccc">Bit coin is an open-source, peer-to-peer, digital decentralized cryptocurrency.
-							Powered by blockchain technology, its defining characteristic is</p>
-							
-						</div><!-- mb-30 -->
-					</div><!-- col-md-4 -->
-					
-					<div class="col-sm-8">
-						<div class="mb-30">
-							<h5 class="color-primary mb-20"><b>ÚLTIMAS NOTICIAS</b></h5>
-							<div class="mb-20">
-								<a class="color-white" href="#"><b>Its Make or Break Time for Bitcoin</b></a>
-								<h6 class="mt-10">Jan 25, 2018</h6>
-							</div>
-							<div class="brdr-ash-1 opacty-2 mr-30"></div>
-							<div class="mt-20">
-								<a class="color-white" href="#"><b>Bitcoin's roller coster ride is not over</b></a>
-								<h6 class="mt-10">Jan 25, 2018</h6>
-							</div>
-						</div><!-- mb-30 -->
-					</div><!-- col-md-4 -->
-					
-				</div><!-- row -->
-			</div><!-- ptb-50 -->
-
-			<div class="opacty-2"></div>
-			
-			<div class="oflow-hidden color-ash font-9 text-sm-center ptb-sm-5">
-					<ul class="float-left float-sm-none list-a-plr-10 list-a-plr-sm-5 list-a-ptb-15 list-a-ptb-sm-10">
-						<li><a class="pl-0 pl-sm-10" href="#">Terminos & Condiciones</a></li>
-						<li><a href="#">Política de Privacidad</a></li>
-						<li><a href="#">Contacáctanos</a></li>
-					</ul>
-					<ul class="float-right float-sm-none list-a-plr-10 list-a-plr-sm-5 list-a-ptb-15 list-a-ptb-sm-5">
-						<li><a class="pl-0 pl-sm-10" href="#"><i class="ion-social-facebook"></i></a></li>
-						<li><a href="#"><i class="ion-social-twitter"></i></a></li>
-						<li><a href="#"><i class="ion-social-instagram"></i></a></li>
-					</ul>
-				
-			</div><!-- oflow-hidden -->
-			
-			<div class="brdr-ash-1 opacty-2"></div>
-			
-			<div class="oflow-hidden color-ash font-9 text-sm-center ptb-sm-5">
-				<p class="color-ash mt-3 mb-3"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-					 Todos los derechos reservados &copy;<script>document.write(new Date().getFullYear());</script> | Powered By <a href="https://raivtech.com" target="_blank">RAIV Technologies</a>
-					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-					</p>
-				
-			</div><!-- oflow-hidden -->
-		</div><!-- container -->
-	</footer>
-	
-	<!-- SCIPTS -->
-	
-	<script src="plugin-frameworks/jquery-3.2.1.min.js"></script>
-	
-	<script src="plugin-frameworks/tether.min.js"></script>
-	
-	<script src="plugin-frameworks/bootstrap.js"></script>
-	
-	<script src="common/scripts.js"></script>
-	
-</body>
-</html> 
+	<?php 
+	include 'layout/footer.php';
+?>
