@@ -1,14 +1,14 @@
 <footer class="bg-191 color-ccc">
 		
-		<div class="container-fluid">
+		<div class="container">
 			<div class="pt-50 pb-20 pos-relative">
 				<div class="abs-tblr pt-50 z--1 text-center">
 					<div class="h-80 pos-relative"><img class="opacty-1 h-100 w-auto" src="images/map.png" alt=""></div>
 				</div>
 				<div class="row">
 				
-					<div class="col-sm-4">
-						<div class="mb-30">
+					<div class="col-sm-4 text-center">
+						<div class="mb-30 text-left">
 							<a href="#"><h3>Contexto Digital</h3></a>
 							<p class="mtb-20 color-ccc">Bit coin is an open-source, peer-to-peer, digital decentralized cryptocurrency.
 							Powered by blockchain technology, its defining characteristic is</p>
@@ -16,18 +16,9 @@
 						</div><!-- mb-30 -->
 					</div><!-- col-md-4 -->
 					
-					<div class="col-sm-8">
+					<div class="col-sm-4 offset-sm-4 text-center">
 						<div class="mb-30">
-							<h5 class="color-primary mb-20"><b>ÚLTIMAS NOTICIAS</b></h5>
-							<div class="mb-20">
-								<a class="color-white" href="#"><b>Its Make or Break Time for Bitcoin</b></a>
-								<h6 class="mt-10">Jan 25, 2018</h6>
-							</div>
-							<div class="brdr-ash-1 opacty-2 mr-30"></div>
-							<div class="mt-20">
-								<a class="color-white" href="#"><b>Bitcoin's roller coster ride is not over</b></a>
-								<h6 class="mt-10">Jan 25, 2018</h6>
-							</div>
+						<a class="twitter-timeline" data-link-color="#fe4918" href="https://twitter.com/raivtech?ref_src=twsrc%5Etfw" width="300" height="300">Tweets de raivtech</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 						</div><!-- mb-30 -->
 					</div><!-- col-md-4 -->
 					
@@ -64,13 +55,13 @@
 	
 	<!-- SCIPTS -->
 	
-	<script src="plugin-frameworks/jquery-3.2.1.min.js"></script>
+	<script src="../plugin-frameworks/jquery-3.2.1.min.js"></script>
 	
-	<script src="plugin-frameworks/tether.min.js"></script>
+	<script src="../plugin-frameworks/tether.min.js"></script>
 	
-	<script src="plugin-frameworks/bootstrap.js"></script>
+	<script src="../plugin-frameworks/bootstrap.js"></script>
 	
-	<script src="common/scripts.js"></script>
+	<script src="../common/scripts.js"></script>
 	
 </body>
 </html> 

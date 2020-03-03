@@ -10,6 +10,16 @@ function obtenerNotas() {
     }
 }
 
+function obtenerNotaId($id) {
+    include 'conn.php';
+    try {
+        return $conn->query("SELECT titulo, imagen, contenido, autor, categoria, fecha FROM notas WHERE id = $id");
+    } catch (Exception $e) {
+         echo "Error!" . $e->getMessage() . "<br>";
+         return false;
+    }
+}
+
 function obtenerAutores() {
     include 'conn.php';
     try {

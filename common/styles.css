@@ -1963,6 +1963,9 @@ section{ padding: 50px 0; }
 }
 
 /** Usuario Estilos **/
-
+.ajustar-imagen{
+	width: 300px;
+	height: 200px;
+}
 
 

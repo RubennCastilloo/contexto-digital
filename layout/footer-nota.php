@@ -1,6 +1,6 @@
 <footer class="bg-191 color-ccc">
 		
-		<div class="container-fluid">
+		<div class="container">
 			<div class="pt-50 pb-20 pos-relative">
 				<div class="abs-tblr pt-50 z--1 text-center">
 					<div class="h-80 pos-relative"><img class="opacty-1 h-100 w-auto" src="images/map.png" alt=""></div>

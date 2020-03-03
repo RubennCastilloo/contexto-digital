@@ -41,7 +41,7 @@
                     <div class="form-group">
                         <label for="autor">Autor</label>
                         <select class="form-control" id="autor">
-                        <option>Seleccionar</option>
+                        <option value="">Seleccionar</option>
                         <option>Redaccion</option>
                         <option>Policiaco</option>
                         <option>4</option>
@@ -52,7 +52,7 @@
                     <div class="form-group">
                         <label for="categoria">Categoria</label>
                         <select class="form-control" id="categoria">
-                        <option>Seleccionar</option>
+                        <option value="">Seleccionar</option>
                         <option>Local</option>
                         <option>Estado</option>
                         <option>Nacional</option>

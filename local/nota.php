@@ -1,10 +1,10 @@
 <?php 
-	include 'layout/header-nota.php';
+	include '../admin/php/functions.php';
+	include '../layout/header-nota-sub.php';
 
 	$id = filter_var($_GET['id'], FILTER_VALIDATE_INT);
     if (!$id) {
-		// header('Location: ../');
-		echo 'No hay notas';
+		header('Location: ./');
         
     }
     $respuesta = obtenerNotaId($id);
@@ -27,7 +27,7 @@
 			<div class="row">
 			
 				<div class="col-md-12 col-lg-8">
-					<img src="images/slider-1-1200x900.jpg" alt="">
+					<img src="../admin/img/notas/<?php echo $nota['imagen'] ? $nota['imagen'] : ''; ?>" alt="">
 					<h3 class="mt-30"><b><?php echo ($nota['titulo']) ? $nota['titulo'] : ''; ?></b></h3>
 					<ul class="list-li-mr-20 mtb-15">
 						<li>Por <a href="#"><b><?php echo ($nota['autor']) ? $nota['autor'] : ''; ?> </b></a> <?php echo ($nota['fecha']) ? $nota['fecha'] : ''; ?></li>
@@ -42,10 +42,7 @@
 						
 						<ul class="mb-30 list-a-bg-grey list-a-hw-radial-35 list-a-hvr-primary list-li-ml-5">
 							<li class="mr-10 ml-0">Compartir</li>
-							<li><a href="#"><i class="ion-social-facebook"></i></a></li>
 							<li><a href="#"><i class="ion-social-twitter"></i></a></li>
-							<li><a href="#"><i class="ion-social-google"></i></a></li>
-							<li><a href="#"><i class="ion-social-instagram"></i></a></li>
 						</ul>
 						
 					</div><!-- float-left-right -->
@@ -54,28 +51,22 @@
 					
 					<h4 class="p-title mt-50"><b>NOTAS RECIENTES</b></h4>
 					<div class="row">
+					<?php $notas = obtenerNotaNumero(2);
+                if ($notas->num_rows) {
+                     foreach($notas as $nota) { ?>
 					
-						<div class="col-sm-6">
-							<img src="images/crypto-news-2-600x450.jpg" alt="">
-							<h4 class="pt-20"><a href="#"><b>2017 Market Performance: <br/>Crypto vs.Stock</b></a></h4>
+						<div class="col-sm-6 text-center">
+							<img class="ajustar-imagen" src="../admin/img/notas/<?php echo $nota['imagen']; ?>" alt="">
+							<h4 class="pt-20"><a href="../<?php echo strtolower($nota['categoria'])?>/nota.php?id=<?php echo $nota['id']?>"><b><?php echo ($nota['titulo'])?></b></a></h4>
 							<ul class="list-li-mr-20 pt-10 mb-30">
-								<li class="color-lite-black">by <a href="#" class="color-black"><b>Olivia Capzallo,</b></a>
-								Jan 25, 2018</li>
-								<li><i class="color-primary mr-5 font-12 ion-ios-bolt"></i>30,190</li>
-								<li><i class="color-primary mr-5 font-12 ion-chatbubbles"></i>47</li>
+								<li class="color-lite-black">Por <a href="#" class="color-black"><b><?php echo $nota['autor']; ?>,</b></a>
+								<?php echo $nota['fecha']; ?></li>
 							</ul>
 						</div><!-- col-sm-6 -->
-						
-						<div class="col-sm-6">
-							<img src="images/crypto-news-1-600x450.jpg" alt="">
-							<h4 class="pt-20"><a href="#"><b>2017 Market Performance: Crypto vs.Stock</b></a></h4>
-							<ul class="list-li-mr-20 pt-10 mb-30">
-								<li class="color-lite-black">by <a href="#" class="color-black"><b>Olivia Capzallo,</b></a>
-								Jan 25, 2018</li>
-								<li><i class="color-primary mr-5 font-12 ion-ios-bolt"></i>30,190</li>
-								<li><i class="color-primary mr-5 font-12 ion-chatbubbles"></i>47</li>
-							</ul>
-						</div><!-- col-sm-6 -->
+						<?php
+                  }
+                }
+              ?>
 						
 					</div><!-- row -->
 					
@@ -87,5 +78,5 @@
 	
 	
 <?php 
-	include 'layout/footer-nota.php';
+	include '../layout/footer-nota-sub.php';
 ?>
