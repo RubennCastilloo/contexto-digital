@@ -24,7 +24,7 @@
 	
 	<header>
 		<div class="bg-191">
-			<div class="container">	
+			<div class="container-fluid">	
 				<div class="oflow-hidden color-ash font-9 text-sm-center ptb-sm-5">
 				
 					<ul class="float-left float-sm-none list-a-plr-10 list-a-plr-sm-5 list-a-ptb-15 list-a-ptb-sm-10">

@@ -1,4 +1,4 @@
-<footer class="bg-191 color-ccc">
+<footer class="bg-191 color-ccc m-0 container-fluid">
 		
 		<div class="container-fluid">
 			<div class="pt-50 pb-20 pos-relative">

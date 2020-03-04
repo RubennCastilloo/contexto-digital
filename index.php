@@ -5,13 +5,14 @@
 	
 	
 	<div class="container">
-		<div class="h-600x h-sm-auto">
-			<div class="h-2-3 h-sm-auto oflow-hidden">
+		<div class="h-600x h-sm-auto pb-0 mb-0">
+			<div class="h-2-3 h-sm-auto oflow-hidden pb-0 mb-0">
 		
-				<div class="pb-5 pr-5 pr-sm-0 float-left float-sm-none w-2-3 w-sm-100 h-100 h-sm-300x">
+				
 				<?php $notas = obtenerNotaNumero(1);
                 if ($notas->num_rows) {
                      foreach($notas as $nota) { ?>
+				<div class="pb-5 pr-5 pr-sm-0 float-left float-sm-none w-2-3 w-sm-100 h-100 h-sm-300x">
 					<a class="pos-relative h-100 dplay-block" href="./<?php echo strtolower($nota['categoria'])?>/nota.php?id=<?php echo $nota['id']?>">
 						<div class="bg-1 bg-grad-layer-6">
 							<img src="admin/img/notas/<?php echo $nota['imagen']; ?>" alt="">
@@ -23,11 +24,12 @@
 							</ul>
 						</div><!--abs-blr -->
 					</a><!-- pos-relative -->
+				</div><!-- w-1-3 -->
 					<?php
                   }
                 }
               ?>
-				</div><!-- w-1-3 -->
+				
 				
 				<div class="float-left float-sm-none w-1-3 w-sm-100 h-100 h-sm-600x">
 				<?php $notas = obtenerUltimasNotas(2);
@@ -37,7 +39,7 @@
 					<div class="pl-5 pb-5 pl-sm-0 ptb-sm-5 pos-relative h-50">
 						<a class="pos-relative h-100 dplay-block" href="./<?php echo strtolower($nota['categoria'])?>/nota.php?id=<?php echo $nota['id']?>">
 						
-							<div class="img-bg bg-2 bg-grad-layer-6">
+							<div class="bg-2 bg-grad-layer-6">
 								<img src="admin/img/notas/<?php echo $nota['imagen']; ?>" alt="">
 							</div>
 							
@@ -53,13 +55,18 @@
                   }
                 }
               ?>
+
 					
 					
 				
 		</div><!-- h-100vh -->
+		</div><!-- container -->
 	</div><!-- container -->
+	</div>
 	
-	<section>
+	
+
+	<section class="mt-0 pt-0">
 		<div class="container">
 			<div class="row">
 			
@@ -107,84 +114,60 @@
 						
 					</div><!-- row -->
 					
-					<h4 class="p-title mt-30"><b>CRYPTO MINING NEWS</b></h4>
+					<h4 class="p-title mt-30"><b>LO MAS RELEVANTE</b></h4>
 					<div class="row">
+
+					<?php $notas = obtenerUltimasNotas(6);
+						
+                if ($notas->num_rows) {
+                     foreach($notas as $nota) { ?>
 					
-						<div class="col-sm-6">
-							<img src="images/crypto-news-6-600x450.jpg" alt="">
-							<h4 class="pt-20"><a href="#"><b>2017 Market Performance: <br/>Crypto vs.Stock</b></a></h4>
+						<div class="col-md-6 text-center">
+							<img src="admin/img/notas/<?php echo $nota['imagen']; ?>" alt="" class="ajustar-imagen">
+							<h4 class="pt-20 text-left"><a href="./<?php echo strtolower($nota['categoria'])?>/nota.php?id=<?php echo $nota['id']?>"><b><?php echo $nota['titulo']?></b></a></h4>
 							<ul class="list-li-mr-20 pt-10 mb-30">
-								<li class="color-lite-black">by <a href="#" class="color-black"><b>Olivia Capzallo,</b></a>
-								Jan 25, 2018</li>
-								<li><i class="color-primary mr-5 font-12 ion-ios-bolt"></i>30,190</li>
-								<li><i class="color-primary mr-5 font-12 ion-chatbubbles"></i>47</li>
+								<li class="color-lite-black text-left">Por <a href="#" class="color-black"><b><?php echo $nota['autor']; ?>,</b></a>
+								<?php echo $nota['fecha']; ?></li>
 							</ul>
 						</div><!-- col-sm-6 -->
-						
-						<div class="col-sm-6">
-							<img src="images/crypto-news-5-600x450.jpg" alt="">
-							<h4 class="pt-20"><a href="#"><b>2017 Market Performance: <br/>Crypto vs.Stock</b></a></h4>
-							<ul class="list-li-mr-20 pt-10 mb-30">
-								<li class="color-lite-black">by <a href="#" class="color-black"><b>Olivia Capzallo,</b></a>
-								Jan 25, 2018</li>
-								<li><i class="color-primary mr-5 font-12 ion-ios-bolt"></i>30,190</li>
-								<li><i class="color-primary mr-5 font-12 ion-chatbubbles"></i>47</li>
-							</ul>
-						</div><!-- col-sm-6 -->
-					
-						<div class="col-sm-6">
-							<img src="images/crypto-news-4-600x450.jpg" alt="">
-							<h4 class="pt-20"><a href="#"><b>2017 Market Performance: <br/>Crypto vs.Stock</b></a></h4>
-							<ul class="list-li-mr-20 pt-10 mb-30">
-								<li class="color-lite-black">by <a href="#" class="color-black"><b>Olivia Capzallo,</b></a>
-								Jan 25, 2018</li>
-								<li><i class="color-primary mr-5 font-12 ion-ios-bolt"></i>30,190</li>
-								<li><i class="color-primary mr-5 font-12 ion-chatbubbles"></i>47</li>
-							</ul>
-						</div><!-- col-sm-6 -->
-						
-						<div class="col-sm-6">
-							<img src="images/crypto-news-3-600x450.jpg" alt="">
-							<h4 class="pt-20"><a href="#"><b>2017 Market Performance: <br/>Crypto vs.Stock</b></a></h4>
-							<ul class="list-li-mr-20 pt-10 mb-30">
-								<li class="color-lite-black">by <a href="#" class="color-black"><b>Olivia Capzallo,</b></a>
-								Jan 25, 2018</li>
-								<li><i class="color-primary mr-5 font-12 ion-ios-bolt"></i>30,190</li>
-								<li><i class="color-primary mr-5 font-12 ion-chatbubbles"></i>47</li>
-							</ul>
-						</div><!-- col-sm-6 -->
-						
-						<div class="col-sm-6">
-							<img src="images/crypto-news-2-600x450.jpg" alt="">
-							<h4 class="pt-20"><a href="#"><b>2017 Market Performance: <br/>Crypto vs.Stock</b></a></h4>
-							<ul class="list-li-mr-20 pt-10 mb-30">
-								<li class="color-lite-black">by <a href="#" class="color-black"><b>Olivia Capzallo,</b></a>
-								Jan 25, 2018</li>
-								<li><i class="color-primary mr-5 font-12 ion-ios-bolt"></i>30,190</li>
-								<li><i class="color-primary mr-5 font-12 ion-chatbubbles"></i>47</li>
-							</ul>
-						</div><!-- col-sm-6 -->
-						
-						<div class="col-sm-6">
-							<img src="images/crypto-news-1-600x450.jpg" alt="">
-							<h4 class="pt-20"><a href="#"><b>2017 Market Performance: Crypto vs.Stock</b></a></h4>
-							<ul class="list-li-mr-20 pt-10 mb-30">
-								<li class="color-lite-black">by <a href="#" class="color-black"><b>Olivia Capzallo,</b></a>
-								Jan 25, 2018</li>
-								<li><i class="color-primary mr-5 font-12 ion-ios-bolt"></i>30,190</li>
-								<li><i class="color-primary mr-5 font-12 ion-chatbubbles"></i>47</li>
-							</ul>
-						</div><!-- col-sm-6 -->
+						<?php
+                  }
+                } else {
+					echo 'Lo sentimos, no hay notas disponibles';
+				}
+              ?>
 						
 					</div><!-- row -->
-					
-					<a class="dplay-block btn-brdr-primary mt-20 mb-md-50" href="#"><b>VIEW MORE CRYPTO MINING EVENTS</b></a>
 				</div><!-- col-md-9 -->
 				
 				<div class="d-none d-md-block d-lg-none col-md-3"></div>
 				<div class="col-md-6 col-lg-4">
 					<div class="pl-20 pl-md-0">
 						
+						<div class="mtb-50 pos-relative">
+							<img src="images/banner-1-600x450.jpg" alt="">
+							<div class="abs-tblr bg-layer-7 text-center color-white">
+								<div class="dplay-tbl">
+									<div class="dplay-tbl-cell">
+										<h4><b>Publicidad</b></h4>
+										<a class="mt-15 color-primary link-brdr-btm-primary" href="#"><b>Contratar Espacio</b></a>
+									</div><!-- dplay-tbl-cell -->
+								</div><!-- dplay-tbl -->
+							</div><!-- abs-tblr -->
+						</div><!-- mtb-50 -->
+
+						<div class="mtb-50 pos-relative">
+							<img src="images/banner-1-600x450.jpg" alt="">
+							<div class="abs-tblr bg-layer-7 text-center color-white">
+								<div class="dplay-tbl">
+									<div class="dplay-tbl-cell">
+										<h4><b>Publicidad</b></h4>
+										<a class="mt-15 color-primary link-brdr-btm-primary" href="#"><b>Contratar Espacio</b></a>
+									</div><!-- dplay-tbl-cell -->
+								</div><!-- dplay-tbl -->
+							</div><!-- abs-tblr -->
+						</div><!-- mtb-50 -->
+
 						<div class="mtb-50 pos-relative">
 							<img src="images/banner-1-600x450.jpg" alt="">
 							<div class="abs-tblr bg-layer-7 text-center color-white">
@@ -212,8 +195,9 @@
 			</div><!-- row -->
 		</div><!-- container -->
 	</section>
+
 	
 	
-	<?php 
+<?php 
 	include 'layout/footer.php';
 ?>
