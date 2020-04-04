@@ -1,3 +1,6 @@
+<?php 
+  include 'php/sessions.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -84,28 +87,60 @@
       </li>
       <!-- Nav Item - Utilities Collapse Menu -->
 
-      <!-- Divider -->
-      <hr class="sidebar-divider">
+      <?php 
+        if($_SESSION['tipo'] == 'admin'){
+          ?>
+            <!-- Divider -->
+            <hr class="sidebar-divider">
 
-      <!-- Heading -->
-      <div class="sidebar-heading">
-        Administración
-      </div>
+            <!-- Heading -->
+            <div class="sidebar-heading">
+              Administración
+            </div>
 
-      <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-          <i class="fas fa-users"></i>
-          <span>Usuarios</span>
-        </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Cuentas:</h6>
-            <a class="collapse-item" href="crearUsuario.php">Nuevo Usuario</a>
-            <a class="collapse-item" href="listaUsuarios.php">Lista de Usuarios</a>
-          </div>
-        </div>
-      </li>
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+              <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+                <i class="fas fa-users"></i>
+                <span>Usuarios</span>
+              </a>
+              <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                  <h6 class="collapse-header">Cuentas:</h6>
+                  <a class="collapse-item" href="crearUsuario.php">Nuevo Usuario</a>
+                  <a class="collapse-item" href="listaUsuarios.php">Lista de Usuarios</a>
+                </div>
+              </div>
+            </li>
+       <?php }
+      ?>
+
+<?php 
+        if($_SESSION['tipo'] == 'admin'){
+          ?>
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+              Newsletter
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+              <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseNewsletter" aria-expanded="true" aria-controls="collapseUtilities">
+                <i class="fas fa-users"></i>
+                <span>Suscripciones</span>
+              </a>
+              <div id="collapseNewsletter" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                  <h6 class="collapse-header">Newsletter:</h6>
+                  <a class="collapse-item" href="listaCorreos.php">Lista de Correos</a>
+                </div>
+              </div>
+            </li>
+       <?php }
+      ?>
 
       <!-- Nav Item - Charts -->
       <!-- <li class="nav-item">
@@ -146,18 +181,30 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
-                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION['nombre'];?></span>
+                <img class="img-profile rounded-circle" src="img/usuarios/<?php echo $_SESSION['imagen']?>">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Perfil
-                </a>
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Configuración
+                
+                  <?php 
+                    if($_SESSION['tipo'] == 'admin') {
+                      ?> <a class="dropdown-item" href="crearUsuario.php">
+                          <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                          Crear Usuario
+                        </a>
+
+                        <a class="dropdown-item" href="listaUsuarios.php">
+                          <i class="fas fa-users mr-2 text-gray-400"></i>
+                          Lista de Usuarios
+                        </a>
+                   <?php }
+                  ?>
+                  
+                
+                <a class="dropdown-item" href="publicidad.php">
+                  <i class="fas fa-ad mr-2 text-gray-400"></i>
+                  Publicidad
                 </a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">

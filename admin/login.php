@@ -1,3 +1,10 @@
+<?php 
+  session_start();
+  if(isset($_GET['cerrar_sesion'])) {
+      //   echo "Si, presionaste en cerrar";
+      $_SESSION = array ();
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,13 +48,13 @@
                   </div>
                   <form class="user">
                     <div class="form-group">
-                      <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Correo">
+                      <input type="email" class="form-control form-control-user" id="email" aria-describedby="emailHelp" placeholder="Correo">
                     </div>
                     <div class="form-group">
-                      <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+                      <input type="password" class="form-control form-control-user" id="password" placeholder="Password">
                     </div>
                     <hr>
-                    <a href="index.html" class="btn btn-primary btn-user btn-block">
+                    <a href="index.html" class="btn btn-primary btn-user btn-block" id="login">
                       Entrar
                     </a>
                 </div>
@@ -71,6 +78,10 @@
 
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.min.js"></script>
+  <!-- user scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+  <script src="js/scripts.js"></script>
+
 
 </body>
 

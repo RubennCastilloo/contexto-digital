@@ -8,6 +8,7 @@
 	
 	<!-- Font -->
 	<link href="https://fonts.googleapis.com/css?family=Encode+Sans+Expanded:400,600,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
 	
 	<!-- Stylesheets -->
 	
@@ -39,39 +40,35 @@
 					
 				</div><!-- top-menu -->
 			</div><!-- container -->
-		</div><!-- bg-191 -->
+		</div> <!-- bg-191 -->
 		
 		<div class="container">
-			<a class="logo" href="../contexto-digital"><h3 class="text-uppercase">Contexto Digital</h3></a>
+			<div class="row">
+				<div class="col-md-12 mt-4">
+					<img src="images/logo-contexto.png" alt="" style="width:250px">
+				</div>
+				<div class="col-md-12">
+					<!-- <a class="logo" href="../contexto-digital"><h3 class="text-uppercase">Contexto Digital</h3></a> -->
 			
-			<a class="right-area src-btn" href="#" >
-				<i class="active src-icn ion-search"></i>
-				<i class="close-icn ion-close"></i>
-			</a>
-			<div class="src-form">
-				<form>
-					<input type="text" placeholder="Buscar Notas">
-					<button type="submit"><i class="ion-search"></i></a></button>
-				</form>
-			</div><!-- src-form -->
-			
-			<a class="menu-nav-icon" data-menu="#main-menu" href="#"><i class="ion-navicon"></i></a>
-			
-			<ul class="main-menu" id="main-menu">
-				<li><a href="local/">LOCAL</a></li>
-				<li><a href="estado/">ESTADO</a></li>
-				<li><a href="nacional/">NACIONAL</a></li>
-				<li><a href="internacional/">INTERNACIONAL</a></li>
-				<li class="drop-down"><a href="03_single-post.html">EXTRAS<i class="ion-arrow-down-b"></i></a>
-					<ul class="drop-down-menu drop-down-inner">
-						<li><a href="#">Economía</a></li>
-						<li><a href="#">Deportes</a></li>
-						<li><a href="#">Cultura y Espectáculos</a></li>
-						<li><a href="#">Tecnología</a></li>
-						<li><a href="#">Curiosidades</a></li>
+					<a class="menu-nav-icon" data-menu="#main-menu" href="#"><i class="ion-navicon"></i></a>
+				
+					<ul class="main-menu font-menu" id="main-menu">
+						<li><a href="local/">LOCAL</a></li>
+						<li><a href="estado/">ESTADO</a></li>
+						<li><a href="nacional/">NACIONAL</a></li>
+						<li><a href="internacional/">INTERNACIONAL</a></li>
+						<li class="drop-down"><a href="#">EXTRAS<i class="ion-arrow-down-b"></i></a>
+							<ul class="drop-down-menu drop-down-inner">
+								<li><a href="#">Economía</a></li>
+								<li><a href="#">Deportes</a></li>
+								<li><a href="#">Cultura y Espectáculos</a></li>
+								<li><a href="#">Tecnología</a></li>
+								<li><a href="#">Curiosidades</a></li>
+							</ul>
+						</li>
 					</ul>
-				</li>
-			</ul>
+				</div>
+			</div>
 			<div class="clearfix"></div>
 		</div><!-- container -->
 	</header>

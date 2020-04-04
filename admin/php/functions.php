@@ -49,6 +49,15 @@ function obtenerUsuarios() {
          return false;
     }
 }
+function obtenerUsuario($id) {
+    include 'conn.php';
+    try {
+        return $conn->query("SELECT nombre, correo, imagen, fecha, tipo FROM usuarios WHERE id = $id");
+    } catch (Exception $e) {
+         echo "Error!" . $e->getMessage() . "<br>";
+         return false;
+    }
+}
 
 function obtenerNotaNumero($num) {
     include 'conn.php';
@@ -69,9 +78,20 @@ function obtenerUltimasNotas($num) {
         return $conn->query("SELECT * FROM (
             SELECT * FROM notas ORDER BY id DESC LIMIT 1, $num
         ) sub
-        ORDER BY id ASC");
+        ORDER BY id DESC");
     } catch (Exception $e) {
          echo "Error!" . $e->getMessage() . "<br>";
          return false;
     }
 }
+
+function obtenerCorreos() {
+    include 'conn.php';
+    try {
+        return $conn->query("SELECT id, correo FROM newsletter");
+    } catch (Exception $e) {
+         echo "Error!" . $e->getMessage() . "<br>";
+         return false;
+    }
+}
+

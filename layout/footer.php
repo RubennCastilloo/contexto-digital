@@ -69,8 +69,12 @@
 	<script src="plugin-frameworks/tether.min.js"></script>
 	
 	<script src="plugin-frameworks/bootstrap.js"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 	
 	<script src="common/scripts.js"></script>
+
+	<script src="admin/js/scripts.js"></script>
 	
 </body>
 </html> 

@@ -6,6 +6,10 @@ const crearAutor = document.querySelector('#crearAutor');
 const crearEspacio = document.querySelector('#subirEspacio');
 // Crear Usuario
 const crearUsuario = document.querySelector('#crearUsuario');
+//Iniciar sesion
+const login = document.querySelector('#login');
+//Boton Newsletter
+const newsletter = document.querySelector('#newsletter-button');
 
 eventListeners();
 
@@ -21,6 +25,12 @@ function eventListeners() {
     }
     if (crearUsuario) {
       crearUsuario.addEventListener('click', subirDatosUsuario);
+    }
+    if (login) {
+      login.addEventListener('click', iniciarSesion);
+    }
+    if (newsletter) {
+      newsletter.addEventListener('click', newsletterSuscription);
     }
 }
 
@@ -167,8 +177,9 @@ function subirDatosUsuario(e) {
   const nombre = document.querySelector('#nombre').value,
         correo = document.querySelector('#correo').value,
         password = document.querySelector('#password').value,
-        imagenConfirm = document.querySelector('#foto').value;
-        imagen= $('#foto')[0].files[0];
+        imagenConfirm = document.querySelector('#foto').value,
+        imagen = $('#foto')[0].files[0],
+        tipo = document.querySelector('#tipo').value;
 
         if(nombre === '' || correo === '' || password === '' || imagenConfirm === ''){
           notificacionFlotante('error', 'Todos los campos son obligatorios');
@@ -179,6 +190,7 @@ function subirDatosUsuario(e) {
           userData.append('correo', correo);
           userData.append('password', password);
           userData.append('imagen', imagen);
+          userData.append('tipo', tipo);
 
           $.ajax({
               url: './php/nuevoUsuario.php',
@@ -201,3 +213,100 @@ function subirDatosUsuario(e) {
           return false;
         }
 }
+
+function iniciarSesion(e){
+  e.preventDefault();
+  const email = document.querySelector('#email').value,
+        password = document.querySelector('#password').value;
+
+  if(email === '' || password === ''){
+    notificacionFlotante('error', 'Todos los campos son necesarios');
+  } else {
+    loginUser = new FormData();
+
+    loginUser.append('email', email);
+    loginUser.append('password', password);
+
+    $.ajax({
+        url: './php/loginUser.php',
+        type: 'post',
+        data: loginUser,
+        contentType: false,
+        processData: false,
+        success: function(data) {
+          var response = JSON.parse(data);
+            // console.log(response);
+            if (response.response === 'correcto') {
+              notificacionFlotante('success', `Bienvenid@ ${response.nombre}`);
+              setTimeout(() => {
+                window.location.href = './';
+              }, 1000);
+            }
+            if (response.response === 'incorrecto') {
+              notificacionFlotante('error', 'Password Incorrecto');
+            }
+            if (response.response === 'noexiste') {
+              notificacionFlotante('error', 'El correo no se encuentra registrado');
+            }
+        }
+    });
+    return false;
+  }
+
+}
+
+function newsletterSuscription(e) {
+  e.preventDefault();
+  
+  const newsletterInput = document.querySelector('#newsletterEmail').value;
+
+  if (newsletterInput === '') {
+    notificacionFlotante('error', 'El Campo está vacío');
+  } else {
+
+          userData = new FormData();
+
+          userData.append('newsletter', newsletterInput);
+          const clase = document.querySelector('.nwsltr-primary-1');
+          $.ajax({
+              url: './admin/php/newsletter.php',
+              type: 'post',
+              data: userData,
+              contentType: false,
+              processData: false,
+              success: function(data) {
+                var response = JSON.parse(data);
+                  // console.log(response);
+                  if (response.response === 'correct') {
+                    notificacionFlotante('success', 'Bienvenido a Contexto Digital');
+                    clase.classList.remove('nwsltr-incorrect');
+                    clase.classList.remove('nwsltr-correct');
+                    document.querySelector('form').reset()
+                  }
+                  if (response.response === 'error') {
+                    notificacionFlotante('error', 'Houston tenemos un problema');
+                  }
+              }
+          });
+          return false;
+  }
+}
+
+document.getElementById('newsletterEmail').addEventListener('input', function() {
+  campo = event.target;
+  valido = document.getElementById('emailOK');
+  const clase = document.querySelector('.nwsltr-primary-1');
+  const NewsBtn = document.querySelector('#newsletter-button');
+      
+  emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+  //Se muestra un texto a modo de ejemplo, luego va a ser un icono
+  if (emailRegex.test(campo.value)) {
+    clase.classList.add('nwsltr-correct');
+    clase.classList.remove('nwsltr-incorrect');
+    NewsBtn.disabled = false;
+  } else {
+    clase.classList.add('nwsltr-incorrect');
+    clase.classList.remove('nwsltr-correct');
+    NewsBtn.disabled = true;
+  }
+});

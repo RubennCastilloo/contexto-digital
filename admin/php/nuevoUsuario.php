@@ -3,7 +3,7 @@ $nombre = filter_var($_POST['nombre'], FILTER_SANITIZE_STRING);
 $correo = filter_var($_POST['correo'], FILTER_SANITIZE_STRING);
 $password = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
 $imagen = $_FILES['imagen'];
-$tipo = 'user';
+$tipo = filter_var($_POST['tipo'], FILTER_SANITIZE_STRING);
 date_default_timezone_set('America/Chihuahua');
 $fecha = date("d-m-Y H:i:s"); 
 $hoy = fechaMx($fecha) . ' ' . date("g:i a");

@@ -4,9 +4,9 @@
 ?>
 	
 	
-	<div class="container">
-		<div class="h-600x h-sm-auto pb-0 mb-0">
-			<div class="h-2-3 h-sm-auto oflow-hidden pb-0 mb-0">
+	<div class="container-fluid">
+		<div class="h-700x h-sm-auto pb-0 mb-0">
+			<div class="h-3-4 h-sm-auto oflow-hidden pb-0 mb-0">
 		
 				
 				<?php $notas = obtenerNotaNumero(1);
@@ -18,9 +18,9 @@
 							<img src="admin/img/notas/<?php echo $nota['imagen']; ?>" alt="">
 						</div>
 						<div class="abs-blr color-white p-20 bg-sm-color-7">
-							<h3 class="mb-15 mb-sm-5 font-sm-13"><b><?php echo $nota['titulo']; ?></b></h3>
-							<ul class="list-li-mr-20">
-								<li>by <span class="color-primary"><b><?php echo $nota['autor']; ?></b></span> <?php echo $nota['fecha']; ?></li>
+							<h3 class="mb-15 mb-sm-5 font-sm-13 background-color-title"><b><?php echo $nota['titulo']; ?></b></h3>
+							<ul class="list-li-mr-20 background-color-title">
+								<li>Por <span class="color-primary"><b><?php echo $nota['autor']; ?></b></span> <?php echo $nota['fecha']; ?></li>
 							</ul>
 						</div><!--abs-blr -->
 					</a><!-- pos-relative -->
@@ -44,7 +44,7 @@
 							</div>
 							
 							<div class="abs-blr color-white p-20 bg-sm-color-7">
-								<h4 class="mb-10 mb-sm-5"><b><?php echo $nota['titulo']; ?></b></h4>
+								<h4 class="background-color-title"><b><?php echo $nota['titulo']; ?></b></h4>
 								<ul class="list-li-mr-20">
 									<li><?php echo $nota['fecha']; ?></li>
 								</ul>
@@ -79,7 +79,14 @@
                      foreach($notas as $nota) { ?>
 						<div class="col-sm-6">
 							<img src="admin/img/notas/<?php echo $nota['imagen']; ?>" alt="">
-							<h4 class="pt-20"><a href="./<?php echo strtolower($nota['categoria'])?>/nota.php?id=<?php echo $nota['id']?>"><?php echo $nota['titulo']; ?></a></h4>
+							<h4 class="pt-20"><a href="./<?php echo strtolower($nota['categoria'])?>/nota.php?id=<?php echo $nota['id']?>"><?php 
+									$len = $nota['titulo'];
+									if(strlen($len) <= 101) {
+										 echo $nota['titulo']?>
+									<?php } 
+									else { 
+										?>  <?php echo substr($nota['titulo'], 0, 100) . "..."; ?> 
+									<?php }?></a></h4>
 							<ul class="list-li-mr-20 pt-10 pb-20">
 								<li class="color-lite-black">Por <a href="#" class="color-black"><b><?php echo $nota['autor']; ?></b></a>
 								<?php echo $nota['fecha']; ?></li>
@@ -91,14 +98,22 @@
                 }
               ?>
 			  <div class="col-sm-6">
-						<?php $notas = obtenerUltimasNotas(7);
+						<?php $notas = obtenerUltimasNotas(9);
 						
                 if ($notas->num_rows) {
                      foreach($notas as $nota) { ?>
-							<a class="oflow-hidden pos-relative mb-20 dplay-block" href="./<?php echo strtolower($nota['categoria'])?>/nota.php?id=<?php echo $nota['id']?>">
+							<a class="oflow-hidden pos-relative mb-2 dplay-block" href="./<?php echo strtolower($nota['categoria'])?>/nota.php?id=<?php echo $nota['id']?>">
 								<div class="wh-100x abs-tlr"><img src="admin/img/notas/<?php echo $nota['imagen']; ?>" alt=""></div>
 								<div class="ml-120 min-h-100x">
-									<h5><b><?php echo $nota['titulo']; ?></b></h5>
+									<?php 
+									$len = $nota['titulo'];
+									if(strlen($len) <= 71) {
+										?> <h5> <?php echo $nota['titulo']?> </h5>
+									<?php } 
+									else { 
+										?> <h5> <?php echo substr($nota['titulo'], 0, 70) . "..."; ?> </h5>
+									<?php }?>
+									
 									<h6 class="color-lite-black pt-10">Por <span class="color-black"><b><?php echo $nota['autor']; ?></b></span> <?php echo $nota['fecha']; ?></h6>
 								</div>
 							</a><!-- oflow-hidden -->
@@ -149,7 +164,7 @@
 							<div class="abs-tblr bg-layer-7 text-center color-white">
 								<div class="dplay-tbl">
 									<div class="dplay-tbl-cell">
-										<h4><b>Publicidad</b></h4>
+										<h4><b>Publicidad 1</b></h4>
 										<a class="mt-15 color-primary link-brdr-btm-primary" href="#"><b>Contratar Espacio</b></a>
 									</div><!-- dplay-tbl-cell -->
 								</div><!-- dplay-tbl -->
@@ -161,7 +176,7 @@
 							<div class="abs-tblr bg-layer-7 text-center color-white">
 								<div class="dplay-tbl">
 									<div class="dplay-tbl-cell">
-										<h4><b>Publicidad</b></h4>
+										<h4><b>Publicidad 2</b></h4>
 										<a class="mt-15 color-primary link-brdr-btm-primary" href="#"><b>Contratar Espacio</b></a>
 									</div><!-- dplay-tbl-cell -->
 								</div><!-- dplay-tbl -->
@@ -173,7 +188,7 @@
 							<div class="abs-tblr bg-layer-7 text-center color-white">
 								<div class="dplay-tbl">
 									<div class="dplay-tbl-cell">
-										<h4><b>Publicidad</b></h4>
+										<h4><b>Publicidad 3</b></h4>
 										<a class="mt-15 color-primary link-brdr-btm-primary" href="#"><b>Contratar Espacio</b></a>
 									</div><!-- dplay-tbl-cell -->
 								</div><!-- dplay-tbl -->
@@ -184,8 +199,8 @@
 							<h4 class="p-title"><b>NEWSLETTER</b></h4>
 							<p class="mb-20">Suscribete a nuestros Newsletter para recibir las últimas noticias más relevantes.</p>
 							<form class="nwsltr-primary-1">
-								<input type="text" placeholder="Tu Email"/>
-								<button type="submit"><i class="ion-ios-paperplane"></i></button>
+								<input type="text" placeholder="Tu Email" id="newsletterEmail"/>
+								<button id="newsletter-button"><i class="ion-ios-paperplane"></i></button>
 							</form>
 						</div><!-- mtb-50 -->
 						

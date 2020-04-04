@@ -1,5 +1,6 @@
-<?php 
+<?php
   include 'layout/header.php';
+  include 'php/functions.php';
 ?>
 
         <!-- Begin Page Content -->
@@ -42,10 +43,15 @@
                         <label for="autor">Autor</label>
                         <select class="form-control" id="autor">
                         <option value="">Seleccionar</option>
-                        <option>Redaccion</option>
-                        <option>Policiaco</option>
-                        <option>4</option>
-                        <option>5</option>
+                        <?php $autores = obtenerAutores();
+                            if ($autores->num_rows) {
+                                foreach($autores as $autor) { ?>
+                        <option><?php echo $autor['autor']; ?></option>
+                        <?php
+                  }
+                }
+              ?>
+                        
                         </select>
                     </div>
 
