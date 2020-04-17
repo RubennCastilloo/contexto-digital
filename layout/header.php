@@ -22,17 +22,21 @@
 	
 </head>
 <body>
+
+
 	
 	<header>
 		<div class="bg-191">
 			<div class="container-fluid">	
-				<div class="oflow-hidden color-ash font-9 text-sm-center ptb-sm-5">
+				<div class="oflow-hidden color-ash font-9 text-sm-center ptb-sm-5 text-white">
 				
 					<ul class="float-left float-sm-none list-a-plr-10 list-a-plr-sm-5 list-a-ptb-15 list-a-ptb-sm-10">
 						<li><a class="pl-0 pl-sm-10" href="#">Nosotros</a></li>
 						<li><a href="#">Contacto</a></li>
 					</ul>
+					
 					<ul class="float-right float-sm-none list-a-plr-10 list-a-plr-sm-5 list-a-ptb-15 list-a-ptb-sm-5">
+						<li class="pr-2 mr-2"><div class="date text-white" id="dateMain"></div></li>
 						<li><a class="pl-0 pl-sm-10" href="#"><i class="ion-social-facebook"></i></a></li>
 						<li><a href="#"><i class="ion-social-twitter"></i></a></li>
 						<li><a href="#"><i class="ion-social-instagram"></i></a></li>
@@ -45,7 +49,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 mt-4">
-					<img src="images/logo-contexto.png" alt="" style="width:250px">
+					<a href="./"><img src="images/logo-contexto.png" alt="" style="width:250px"></a>
 				</div>
 				<div class="col-md-12">
 					<!-- <a class="logo" href="../contexto-digital"><h3 class="text-uppercase">Contexto Digital</h3></a> -->

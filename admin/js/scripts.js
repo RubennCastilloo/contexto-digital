@@ -310,3 +310,17 @@ document.getElementById('newsletterEmail').addEventListener('input', function() 
     NewsBtn.disabled = true;
   }
 });
+
+
+let f = new Date();
+    let opciones = {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    };
+
+    let fecha = f.toLocaleDateString('es-MX', opciones);
+
+    const date = document.querySelector('#dateMain');
+    date.innerHTML = fecha;
